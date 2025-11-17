@@ -41,6 +41,40 @@ _Example workflow that retrieves the system prompt for the agent from Langfuse:_
 
 ![n8n-changelog](https://github.com/user-attachments/assets/4d224c2f-86b6-4ad4-a64a-45c7fe6e3595)
 
+### Compile Prompt
+
+This operation retrieves a prompt from Langfuse and compiles it by substituting variables with your provided values. This is especially useful when you want to dynamically generate prompts with custom data before passing them to AI models.
+
+Steps:
+
+1. Select a prompt from the list or enter the prompt name manually
+2. Choose the prompt label (e.g., "production", "staging") to specify which version to use
+3. Fill in the prompt variables that are automatically detected from your Langfuse prompt template
+
+The node will output:
+- The compiled prompt with all variables substituted
+- Metadata including prompt ID, name, version, type, labels, tags, and config
+- The original variables you provided
+
+#### Example: Compiling a text prompt
+
+> Say hello to {{name}} and tell a joke about {{subject}}
+ 
+![Compile text prompt](./assets/compile-text-prompt.png)
+
+#### Example: Compiling a chat prompt
+
+> System: You make jokes about {{subject}} for the given person  
+> User: My name is {{name}}
+
+![Compile chat prompts](./assets/compile-chat-prompts.png)
+
+**Use Cases:**
+- Generate personalized prompts for each item in your workflow
+- Test different prompt variations by switching between labels
+- Dynamically inject data from previous nodes into your prompt templates
+- Maintain prompt version control through Langfuse while keeping your workflows flexible
+
 ## Credentials
 
 To use this node, you need to authenticate with Langfuse. You'll need:
