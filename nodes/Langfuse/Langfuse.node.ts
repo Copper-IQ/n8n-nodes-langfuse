@@ -1,4 +1,4 @@
-import { INodeType, INodeTypeDescription, NodeConnectionType } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
 
 export class Langfuse implements INodeType {
 	description: INodeTypeDescription = {
@@ -11,8 +11,8 @@ export class Langfuse implements INodeType {
 		defaults: {
 			name: 'Get Prompt (Langfuse)',
 		},
-		inputs: [NodeConnectionType.Main],
-		outputs: [NodeConnectionType.Main],
+		inputs: ['main'],
+		outputs: ['main'],
 		credentials: [
 			{
 				name: 'langfuseApi',
