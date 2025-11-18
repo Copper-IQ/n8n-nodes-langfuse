@@ -128,7 +128,10 @@ export const labelResourceProperty: INodeProperties = {
 		loadOptionsMethod: 'loadPromptLabels',
 		loadOptionsDependsOn: ['promptNameResource.value'],
 	},
-	options: [],
+	options: [
+		{ name: 'Production', value: 'production' },
+		{ name: 'Latest', value: 'latest' },
+	],
 	displayOptions: {
 		show: {
 			resource: ['prompt'],

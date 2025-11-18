@@ -20,7 +20,7 @@ export async function fetchPrompts(
 ) {
 	const response = (await context.helpers.httpRequest({
 		method: 'GET',
-		url: `${credentials.host}/api/public/v2/prompts`,
+		url: `${credentials.host}/api/public/v2/prompts?limit=100`,
 		auth: createAuthObject(credentials),
 	})) as { data?: Array<{ name: string; labels?: string[]; versions?: number[] }> };
 
